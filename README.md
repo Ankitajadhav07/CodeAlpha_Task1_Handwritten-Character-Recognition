@@ -1,49 +1,68 @@
 # CodeAlpha_Task1_Handwritten-Character-Recognition
 
-# Disease Prediction using Machine Learning
+# Handwritten Character Recognition
 
-This repository contains a complete machine learning pipeline for predicting diseases based on symptoms using the Disease-Symptom dataset from Kaggle. The project involves data preprocessing, model building, and advanced visualization techniques to create a robust and interpretable disease prediction model.
+This repository contains a complete implementation of a handwritten character recognition system using a Convolutional Neural Network (CNN). The project combines the A-Z Handwritten Alphabets dataset with the MNIST digits (1-9) to build a model that recognizes both digits and uppercase English letters.
 
 ## Project Overview
 
-### 1. **Data Exploration and Preprocessing**
-   - Loaded and explored the Disease-Symptom dataset, checking for missing values and statistical insights.
-   - Preprocessed the data by handling missing values, scaling features, and splitting the data into training and testing sets.
+The objective of this project is to develop a machine learning model that can accurately recognize handwritten characters, including digits (1-9) and uppercase letters (A-Z). The project involves the following steps:
 
-### 2. **Model Building**
-   - Built a RandomForestClassifier to predict diseases based on the provided symptoms.
-   - Evaluated the model using classification metrics like precision, recall, F1-score, and a confusion matrix.
+1. **Data Preparation**:
+   - **A-Z Handwritten Alphabets Dataset**: A dataset of handwritten uppercase English alphabets (A-Z).
+   - **MNIST Dataset**: A dataset of handwritten digits (0-9), from which only digits 1-9 are used.
+   - **Combining the Datasets**: The A-Z dataset is combined with the MNIST dataset to create a dataset with 35 classes (1-9, A-Z).
 
-### 3. **Advanced Visualization**
-   - **Feature Importance Plot:** Visualized the importance of each feature in making predictions.
-   - **PCA Visualization:** Applied Principal Component Analysis to reduce the dimensionality of the data and visualize it in a 2D space.
-   - **ROC Curve:** Plotted the Receiver Operating Characteristic curve to evaluate model performance.
-   - **SHAP Values:** Used SHAP (SHapley Additive exPlanations) to explain individual predictions and visualize the impact of each feature.
+2. **Model Development**:
+   - **Convolutional Neural Network (CNN)**: A CNN model is built to learn features from the combined dataset.
+   - **Training**: The model is trained on the combined dataset with multiple epochs, using `Adam` optimizer and `sparse_categorical_crossentropy` loss function.
 
-### 4. **Model Accuracy**
-   - Calculated the accuracy of the model on the test dataset, achieving a high level of accuracy in predicting diseases.
+3. **Evaluation**:
+   - **Test Accuracy**: The model is evaluated on the test set, achieving competitive accuracy.
+   - **Confusion Matrix**: A confusion matrix is plotted to visualize the model's performance across different classes.
 
-## Installation and Usage
+4. **Visualization**:
+   - **Sample Visualizations**: Example images from both datasets are visualized.
+   - **Misclassified Images**: Some of the misclassified images are plotted to understand where the model struggles.
+   - **Accuracy and Loss Plots**: Training and validation accuracy and loss curves are plotted to monitor the model’s learning process.
 
-1. Clone the repository:
+5. **Model Saving**:
+   - The trained model is saved for future inference.
+
+## Interesting Plots
+
+- **Confusion Matrix**: Provides a summary of the model’s performance on different classes.
+- **Misclassified Images**: Displays images that the model predicted incorrectly, along with the true and predicted labels.
+
+## How to Use
+
+1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/disease-prediction.git
+   git clone https://github.com/yourusername/handwritten-character-recognition.git
+   cd handwritten-character-recognition
    ```
-2. Install the required dependencies:
+
+2. **Install Dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
-3. Run the notebook or script to see the results and visualizations.
 
-## Dataset
+3. **Run the Jupyter Notebook**:
+   - Open the provided Jupyter notebook `handwritten_character_recognition.ipynb` and run all the cells to train the model, evaluate it, and visualize the results.
 
-The dataset used in this project is the Disease-Symptom dataset, which can be found [here](https://www.kaggle.com/datasets/dhivyeshrk/diseases-and-symptoms-dataset).
+4. **Use the Saved Model**:
+   - The saved model `handwritten_character_recognition_model.h5` can be loaded for inference on new handwritten character data.
 
-## Results and Insights
+## Dataset Sources
 
-The model performed exceptionally well with an accuracy of `X.XX%`. Advanced visualizations like feature importance plots, PCA, ROC curves, and SHAP values provided deep insights into the model's decision-making process, ensuring transparency and interpretability.
+- [A-Z Handwritten Alphabets Dataset](https://www.kaggle.com/datasets/sachinpatel21/az-handwritten-alphabets-in-csv-format)
+- [MNIST Dataset](https://www.kaggle.com/datasets/oddrationale/mnist-in-csv)
+
+## Results
+
+- The model achieves a high level of accuracy in recognizing both digits and letters.
+- The confusion matrix and misclassification plots provide insights into the model's performance.
 
 ## Contributing
 
-Contributions are welcome! If you have any suggestions or improvements, feel free to submit a pull request or open an issue.
-
+Contributions are welcome! Please open an issue or submit a pull request if you have suggestions or improvements.
